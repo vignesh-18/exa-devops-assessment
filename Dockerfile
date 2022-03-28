@@ -1,6 +1,6 @@
 FROM node:16
 
-LABEL maintainer="vignesh <vignesh.babu@emishealth.com>"
+LABEL maintainer="vignesh Babu <vignesh.babu@emishealth.com>"
 
 WORKDIR /usr/src/app
 
