@@ -4,9 +4,11 @@ LABEL maintainer="vignesh Babu <vignesh.babu@emishealth.com>"
 
 WORKDIR /usr/src/app
 
-COPY . .
+COPY package*.json ./
 
 RUN npm install
+
+COPY . .
 
 EXPOSE 3000
 
