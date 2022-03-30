@@ -1,5 +1,10 @@
 version: 0.2
 
+env:
+  secrets-manager:
+    DOCKER_USERNAME: "docker:username"
+    DOCKER_PASSWORD: "docker:password"
+
 phases:
   pre_build:
     commands:
@@ -12,6 +17,7 @@ phases:
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
     commands:
+      - docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_NAME:latest .
       - docker tag $REPOSITORY_NAME:latest $REPOSITORY_URI:latest
